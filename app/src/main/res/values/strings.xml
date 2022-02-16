@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">DesafioPagamento</string>
+    <string name="hint_search_bar">A quem você deseja pagar?</string>
+    <string name="title_contact">Contatos</string>
+</resources>
