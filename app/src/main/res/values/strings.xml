@@ -2,4 +2,7 @@
     <string name="app_name">DesafioPagamento</string>
     <string name="hint_search_bar">A quem você deseja pagar?</string>
     <string name="title_contact">Contatos</string>
+    <string name="title_primary_text_pre_card_register">Cadastre um cartão de crédito</string>
+    <string name="title_secunday_text_pre_card_register">Para fazer pagamentos para outras pessoas você precisa cadastrar um cartão de crédito pessoal.</string>
+    <string name="title_button_register_card">Cadastrar cartão</string>
 </resources>

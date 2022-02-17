@@ -3,11 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/preCardRegisterFragment">
 
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.desafiopagamento.feature.presentation.homescreen.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/preCardRegisterFragment"
+        android:name="com.example.desafiopagamento.feature.presentation.precardregister.PreCardRegisterFragment"
+        android:label="fragment_precardregister"
+        tools:layout="@layout/fragment_precardregister" />
 </navigation>
