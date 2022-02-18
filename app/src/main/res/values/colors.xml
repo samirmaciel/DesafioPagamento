@@ -8,6 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="graybold">#2B2C2F</color>
+    <color name="grayhint">#999999</color>
     <color name="graylight">#ACB1BD</color>
+    <color name="greenbold">#263238</color>
 
 </resources>

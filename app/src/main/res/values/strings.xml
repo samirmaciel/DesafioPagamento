@@ -5,4 +5,9 @@
     <string name="title_primary_text_pre_card_register">Cadastre um cartão de crédito</string>
     <string name="title_secunday_text_pre_card_register">Para fazer pagamentos para outras pessoas você precisa cadastrar um cartão de crédito pessoal.</string>
     <string name="title_button_register_card">Cadastrar cartão</string>
+    <string name="title_card_register">Cadastrar cartão</string>
+    <string name="hint_card_cvv">CVV</string>
+    <string name="hint_card_vencimento">Vencimento</string>
+    <string name="hint_cardholder_name">Nome do titular</string>
+    <string name="title_button_save">Salvar</string>
 </resources>
