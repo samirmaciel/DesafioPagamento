@@ -8,7 +8,102 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/graybold">
 
+    <ImageButton
+        android:id="@+id/btnBackButton"
+        android:scaleType="fitCenter"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/ic_baseline_arrow_back_ios_24"
+        android:background="?attr/selectableItemBackgroundBorderless"/>
+
+    <ImageView
+        android:id="@+id/ivImageUser"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnBackButton"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/user1"
+        tools:layout_editor_absoluteX="163dp"
+        tools:layout_editor_absoluteY="39dp" />
+
+    <TextView
+        android:id="@+id/tvUserName"
+        app:layout_constraintTop_toBottomOf="@id/ivImageUser"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="/@userName"
+        style="@style/userName" />
+
+    <EditText
+        android:id="@+id/edtMoneyInput"
+        app:layout_constraintTop_toBottomOf="@id/tvUserName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:hint="00,00"
+        style="@style/moneyText" />
+
+    <TextView
+        app:layout_constraintEnd_toStartOf="@id/edtMoneyInput"
+        app:layout_constraintTop_toTopOf="@id/edtMoneyInput"
+        app:layout_constraintBottom_toBottomOf="@id/edtMoneyInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="8dp"
+        style="@style/moneyText"
+        android:text="R$"
+        android:textSize="18sp"/>
+
     <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnPay"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvCardName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="29dp"
+            style="@style/userName"
+            android:text="MasterCard 1234 •"/>
+
+        <TextView
+            android:id="@+id/btnEditCard"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            style="@style/userName"
+            android:textColor="@color/green"
+            android:text="EDITAR"/>
+    </LinearLayout>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnPay"
+        android:layout_width="0dp"
+        style="@style/main_button"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toTopOf="@id/llKeyboard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="16dp"
+        app:cornerRadius="30dp"
+        android:text="Pagar"/>
+
+    <LinearLayout
+        android:id="@+id/llKeyboard"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

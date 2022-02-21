@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="sizeOfKeyboardNumber">50dp</dimen>
+    <dimen name="sizeOfKeyboardNumber">30dp</dimen>
     <dimen name="marginHorizontalOfKeyboardNumber">40dp</dimen>
     <dimen name="marginVerticalOfKeyboardNumber">28dp</dimen>
 
