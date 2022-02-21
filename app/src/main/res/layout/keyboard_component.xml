@@ -28,6 +28,7 @@
                 android:orientation="horizontal">
                 <ImageButton
                     android:id="@+id/btnKeyboard1"
+                    android:clickable="true"
                     android:layout_width="40dp"
                     android:layout_height="@dimen/sizeOfKeyboardNumber"
                     android:scaleType="fitCenter"
@@ -245,6 +246,7 @@
                 <ImageButton
                     android:id="@+id/btnKeyboard0"
                     android:layout_width="40dp"
+                    android:clickable="true"
                     android:layout_height="@dimen/sizeOfKeyboardNumber"
                     android:scaleType="fitCenter"
                     android:background="?attr/selectableItemBackgroundBorderless"

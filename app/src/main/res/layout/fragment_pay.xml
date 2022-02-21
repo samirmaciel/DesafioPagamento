@@ -45,7 +45,10 @@
         app:layout_constraintTop_toBottomOf="@id/tvUserName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
         android:hint="00,00"
+        android:maxLength="9"
+        android:enabled="false"
         style="@style/moneyText" />
 
     <TextView
@@ -110,6 +113,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <include
+            android:id="@+id/keyboardComponent"
             layout="@layout/keyboard_component"/>
     </LinearLayout>
 
