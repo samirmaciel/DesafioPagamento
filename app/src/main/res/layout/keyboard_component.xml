@@ -6,6 +6,7 @@
     android:layout_height="wrap_content">
 
     <LinearLayout
+        android:layout_marginTop="16dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,10 +27,11 @@
                 android:gravity="bottom"
                 android:orientation="horizontal">
                 <ImageButton
+                    android:id="@+id/btnKeyboard1"
                     android:layout_width="40dp"
                     android:layout_height="@dimen/sizeOfKeyboardNumber"
                     android:scaleType="fitCenter"
-                    android:background="?attr/selectableItemBackground"
+                    android:background="?attr/selectableItemBackgroundBorderless"
                     android:src="@drawable/ic_1"/>
 
                 <TextView
@@ -48,10 +50,11 @@
                 android:layout_marginHorizontal="@dimen/marginHorizontalOfKeyboardNumber"
                 android:orientation="horizontal">
                 <ImageButton
+                    android:id="@+id/btnKeyboard2"
                     android:layout_width="40dp"
                     android:layout_height="@dimen/sizeOfKeyboardNumber"
                     android:scaleType="fitCenter"
-                    android:background="?attr/selectableItemBackground"
+                    android:background="?attr/selectableItemBackgroundBorderless"
                     android:src="@drawable/ic_2"/>
 
                 <TextView
@@ -67,6 +70,7 @@
                 android:gravity="bottom"
                 android:orientation="horizontal">
                 <ImageButton
+                    android:id="@+id/btnKeyboard3"
                     android:layout_width="40dp"
                     android:layout_height="@dimen/sizeOfKeyboardNumber"
                     android:scaleType="fitCenter"
@@ -93,10 +97,11 @@
                 android:gravity="bottom"
                 android:orientation="horizontal">
                 <ImageButton
+                    android:id="@+id/btnKeyboard4"
                     android:layout_width="40dp"
                     android:layout_height="@dimen/sizeOfKeyboardNumber"
                     android:scaleType="fitCenter"
-                    android:background="?attr/selectableItemBackground"
+                    android:background="?attr/selectableItemBackgroundBorderless"
                     android:src="@drawable/ic_4"/>
 
                 <TextView
@@ -113,10 +118,11 @@
                 android:gravity="bottom"
                 android:orientation="horizontal">
                 <ImageButton
+                    android:id="@+id/btnKeyboard5"
                     android:layout_width="40dp"
                     android:layout_height="@dimen/sizeOfKeyboardNumber"
                     android:scaleType="fitCenter"
-                    android:background="?attr/selectableItemBackground"
+                    android:background="?attr/selectableItemBackgroundBorderless"
                     android:src="@drawable/ic_5"/>
 
                 <TextView
@@ -132,10 +138,11 @@
                 android:gravity="bottom"
                 android:orientation="horizontal">
                 <ImageButton
+                    android:id="@+id/btnKeyboard6"
                     android:layout_width="40dp"
                     android:layout_height="@dimen/sizeOfKeyboardNumber"
                     android:scaleType="fitCenter"
-                    android:background="?attr/selectableItemBackground"
+                    android:background="?attr/selectableItemBackgroundBorderless"
                     android:src="@drawable/ic_6"/>
 
                 <TextView
@@ -158,10 +165,11 @@
                 android:gravity="bottom"
                 android:orientation="horizontal">
                 <ImageButton
+                    android:id="@+id/btnKeyboard7"
                     android:layout_width="40dp"
                     android:layout_height="@dimen/sizeOfKeyboardNumber"
                     android:scaleType="fitCenter"
-                    android:background="?attr/selectableItemBackground"
+                    android:background="?attr/selectableItemBackgroundBorderless"
                     android:src="@drawable/ic_7"/>
 
                 <TextView
@@ -178,15 +186,16 @@
                 android:layout_marginHorizontal="@dimen/marginHorizontalOfKeyboardNumber"
                 android:orientation="horizontal">
                 <ImageButton
+                    android:id="@+id/btnKeyboard8"
                     android:layout_width="40dp"
                     android:layout_height="@dimen/sizeOfKeyboardNumber"
                     android:scaleType="fitCenter"
-                    android:background="?attr/selectableItemBackground"
+                    android:background="?attr/selectableItemBackgroundBorderless"
                     android:src="@drawable/ic_8"/>
 
                 <TextView
                     android:layout_marginStart="9dp"
-                    android:layout_width="38"
+                    android:layout_width="38dp"
                     android:layout_height="wrap_content"
                     android:textColor="@color/grayhint"
                     android:text="TUV"/>
@@ -197,10 +206,11 @@
                 android:gravity="bottom"
                 android:orientation="horizontal">
                 <ImageButton
+                    android:id="@+id/btnKeyboard9"
                     android:layout_width="40dp"
                     android:layout_height="@dimen/sizeOfKeyboardNumber"
                     android:scaleType="fitCenter"
-                    android:background="?attr/selectableItemBackground"
+                    android:background="?attr/selectableItemBackgroundBorderless"
                     android:src="@drawable/ic_9"/>
                 <TextView
                     android:layout_marginStart="9dp"
@@ -218,10 +228,11 @@
             android:orientation="horizontal">
 
             <ImageButton
+                android:id="@+id/btnBackSpace"
                 android:layout_width="40dp"
                 android:scaleType="fitCenter"
                 android:layout_height="50dp"
-                android:background="?attr/selectableItemBackground"
+                android:background="?attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/ic_delete"/>
 
             <LinearLayout
@@ -232,10 +243,11 @@
                 android:layout_marginHorizontal="60dp"
                 android:orientation="horizontal">
                 <ImageButton
+                    android:id="@+id/btnKeyboard0"
                     android:layout_width="40dp"
                     android:layout_height="@dimen/sizeOfKeyboardNumber"
                     android:scaleType="fitCenter"
-                    android:background="?attr/selectableItemBackground"
+                    android:background="?attr/selectableItemBackgroundBorderless"
                     android:src="@drawable/ic_0"/>
                 <TextView
                     android:layout_marginStart="9dp"
@@ -248,7 +260,8 @@
             </LinearLayout>
 
             <ImageButton
-                android:background="?attr/selectableItemBackground"
+                android:id="@+id/btnSend"
+                android:background="?attr/selectableItemBackgroundBorderless"
                 android:scaleType="fitCenter"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
