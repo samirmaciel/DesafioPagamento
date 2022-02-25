@@ -3,6 +3,7 @@ package com.example.desafiopagamento.feature.presentation.payscreen
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import com.example.desafiopagamento.R
 import com.example.desafiopagamento.databinding.FragmentPayBinding
@@ -23,8 +24,12 @@ class PayFragment : Fragment(R.layout.fragment_pay){
 
         binding.edtMoneyInput.addTextChangedListener(MoneyTextWatcher(binding.edtMoneyInput))
 
-        setClickListeners()
 
+        binding.edtMoneyInput.doOnTextChanged{ _, _, _, _ ->
+            binding.edtMoneyInput.setTextColor(resources.getColor(R.color.green))
+        }
+
+        setClickListeners()
     }
 
     private fun setClickListeners(){
@@ -60,15 +65,29 @@ class PayFragment : Fragment(R.layout.fragment_pay){
         }
 
         binding.keyboardComponent.btnBackSpace.setOnClickListener {
-            var textFromInput = binding.edtMoneyInput.text
+            if(binding.edtMoneyInput.text.length > 0){
+                var textFromInput = binding.edtMoneyInput.text
 
-            var cleanString = textFromInput.toString().replace("[,.]".toRegex(), "").replace("\\s+".toRegex(), "")
+                var cleanString = textFromInput.toString().replace("[,.]".toRegex(), "").replace("\\s+".toRegex(), "")
 
-            var stringToInput = cleanString.drop(1)
+                if(cleanString[0].toString().equals("0", true)){
+                    cleanString = cleanString.drop(1)
+                    if(cleanString[0].toString().equals("0", true)) {
+                        cleanString = cleanString.drop(1)
+                    }
+                    Log.d("AppPay", "setClickListeners: " + cleanString)
+                }
 
-            Log.d("SocketFuck", "setClickListeners: " + stringToInput)
 
-            binding.edtMoneyInput.setText(stringToInput)
+                cleanString = cleanString.drop(1)
+
+                if (cleanString.length == 0){
+                    cleanString = ""
+                }
+
+
+                binding.edtMoneyInput.setText(cleanString)
+            }
         }
     }
 
