@@ -1,7 +1,6 @@
 package com.example.desafiopagamento.feature.presentation.payscreen
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
@@ -25,8 +24,8 @@ class PayFragment : Fragment(R.layout.fragment_pay){
         binding.edtMoneyInput.addTextChangedListener(MoneyTextWatcher(binding.edtMoneyInput))
 
 
-        binding.edtMoneyInput.doOnTextChanged{ _, _, _, _ ->
-            binding.edtMoneyInput.setTextColor(resources.getColor(R.color.green))
+        binding.edtMoneyInput.doOnTextChanged{ text, _, _, _ ->
+            binding.btnPay.isEnabled = !text.isNullOrEmpty()
         }
 
         setClickListeners()
@@ -65,29 +64,30 @@ class PayFragment : Fragment(R.layout.fragment_pay){
         }
 
         binding.keyboardComponent.btnBackSpace.setOnClickListener {
-            if(binding.edtMoneyInput.text.length > 0){
-                var textFromInput = binding.edtMoneyInput.text
+            backSpaceKeyboardFeature()
+        }
+    }
 
-                var cleanString = textFromInput.toString().replace("[,.]".toRegex(), "").replace("\\s+".toRegex(), "")
+    private fun backSpaceKeyboardFeature(){
+        if(binding.edtMoneyInput.text.length > 0){
 
-                if(cleanString[0].toString().equals("0", true)){
-                    cleanString = cleanString.drop(1)
-                    if(cleanString[0].toString().equals("0", true)) {
-                        cleanString = cleanString.drop(1)
-                    }
-                    Log.d("AppPay", "setClickListeners: " + cleanString)
+            var stringWithOnlyNumber = binding.edtMoneyInput.text.toString().replace("[,.]".toRegex(), "").replace("\\s+".toRegex(), "")
+
+            if(stringWithOnlyNumber[0].toString().equals("0", true)){
+                stringWithOnlyNumber = stringWithOnlyNumber.drop(1)
+
+                if(stringWithOnlyNumber[0].toString().equals("0", true)) {
+                    stringWithOnlyNumber = stringWithOnlyNumber.drop(1)
                 }
-
-
-                cleanString = cleanString.drop(1)
-
-                if (cleanString.length == 0){
-                    cleanString = ""
-                }
-
-
-                binding.edtMoneyInput.setText(cleanString)
             }
+
+            stringWithOnlyNumber = stringWithOnlyNumber.drop(1)
+
+            if (stringWithOnlyNumber.length == 0){
+                stringWithOnlyNumber = ""
+            }
+
+            binding.edtMoneyInput.setText(stringWithOnlyNumber)
         }
     }
 

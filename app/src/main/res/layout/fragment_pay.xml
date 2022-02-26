@@ -47,6 +47,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_width="wrap_content"
         android:hint="0,00"
+        android:textColor="@color/green"
         android:maxLength="9"
         android:inputType="number"
         android:enabled="false"
@@ -103,6 +104,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginHorizontal="16dp"
+        android:enabled="false"
         app:cornerRadius="30dp"
         android:text="Pagar"/>
 
