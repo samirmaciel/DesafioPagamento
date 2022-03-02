@@ -23,7 +23,6 @@ class PayFragment : Fragment(R.layout.fragment_pay){
 
         binding.edtMoneyInput.addTextChangedListener(MoneyTextWatcher(binding.edtMoneyInput))
 
-
         binding.edtMoneyInput.doOnTextChanged{ text, _, _, _ ->
             binding.btnPay.isEnabled = !text.isNullOrEmpty()
         }

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#1D1E20"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/llTopbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#151516"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <View
+            android:layout_marginTop="8dp"
+            android:layout_width="40dp"
+            android:layout_height="3dp"
+            android:background="#3D4451"/>
+
+        <TextView
+            android:layout_marginTop="11dp"
+            android:layout_marginBottom="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/title_bottomsheet"
+            android:text="Recibo"/>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ivUserImageReceipt"
+        app:layout_constraintTop_toBottomOf="@id/llTopbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="24dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/user1"/>
+
+    <LinearLayout
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivUserImageReceipt"
+        android:id="@+id/llUserInfo"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvReceiptUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/userName"
+            android:text="zelda.williams"/>
+
+        <TextView
+            android:id="@+id/tvReceiptPayDateTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            style="@style/subtitle_receipt"
+            android:text="15/12/2022 às 16:34"/>
+
+        <TextView
+            android:id="@+id/tvReceiptPayTransactionCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/subtitle_receipt"
+            android:text="Transação: 230010"
+            android:textColor="@color/grayhint"/>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/viewTopCardInfo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llUserInfo"
+        android:background="#3D4451"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="24dp"
+        android:layout_width="0dp"
+        android:layout_height="2dp"/>
+
+    <TextView
+        android:id="@+id/tvReceiptCardInfo"
+        app:layout_constraintStart_toStartOf="@id/viewTopCardInfo"
+        app:layout_constraintTop_toBottomOf="@id/viewTopCardInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        style="@style/title"
+        android:textSize="13sp"
+        android:text="Cartão Master 1234"/>
+
+    <TextView
+        android:id="@+id/tvReceiptPayValue"
+        app:layout_constraintEnd_toEndOf="@id/viewTopCardInfo"
+        app:layout_constraintTop_toBottomOf="@id/viewTopCardInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        style="@style/title"
+        android:textSize="13sp"
+        android:text="R$  16,90"/>
+
+    <View
+        android:id="@+id/viewBottomCardInfo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvReceiptCardInfo"
+        android:background="#3D4451"
+        android:layout_marginTop="12dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_width="0dp"
+        android:layout_height="2dp"/>
+
+    <TextView
+        app:layout_constraintStart_toStartOf="@id/viewBottomCardInfo"
+        app:layout_constraintTop_toBottomOf="@id/viewBottomCardInfo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="100dp"
+        android:text="Total pago"
+        style="@style/title"/>
+
+    <TextView
+        android:id="@+id/tvReceiptTotalPayValue"
+        app:layout_constraintEnd_toEndOf="@id/viewBottomCardInfo"
+        app:layout_constraintTop_toBottomOf="@id/viewBottomCardInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="R$ 16,90"
+        style="@style/title"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
