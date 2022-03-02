@@ -35,6 +35,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvContacts"
+        tools:listitem="@layout/item_rv_contact"
         app:layout_constraintTop_toBottomOf="@id/edtSearch"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
