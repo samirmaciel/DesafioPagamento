@@ -5,7 +5,7 @@ import com.example.desafiopagamento.feature.domain.model.Contact
 
 object MockContacts {
 
-    fun getAllContact() : MutableList<Contact>{
+    fun getAllContacts() : MutableList<Contact>{
         return mutableListOf(
             Contact(
                 nickname = "@aliceromero",

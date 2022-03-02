@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.desafiopagamento.R
 import com.example.desafiopagamento.databinding.FragmentHomeBinding
 import com.example.desafiopagamento.feature.data.MockContacts
@@ -24,13 +25,24 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentHomeBinding.bind(view)
+        initRecyclerVIew()
     }
 
     override fun onResume() {
         super.onResume()
 
+        viewModel.contactsWorkList.observe(this){ listContact ->
+            mAdapter.itemList = listContact
+            mAdapter.notifyDataSetChanged()
+        }
+    }
 
+    private fun initRecyclerVIew(){
+        mAdapter = ContactRecyclerViewAdapter { contact ->
 
+        }
+        binding.rvContacts.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        binding.rvContacts.adapter = mAdapter
     }
 
 

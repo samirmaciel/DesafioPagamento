@@ -12,7 +12,7 @@ import com.example.desafiopagamento.feature.domain.model.Contact
 
 class ContactRecyclerViewAdapter(val itemClick : (Contact) -> Unit) :RecyclerView.Adapter<ContactRecyclerViewAdapter.MyViewHolder>() {
 
-    val itemList : MutableList<Contact> = mutableListOf()
+    var itemList : MutableList<Contact> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_rv_contact, parent, false)
