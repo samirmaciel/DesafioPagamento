@@ -8,11 +8,11 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.desafiopagamento.R
-import com.example.desafiopagamento.feature.domain.model.Contact
+import com.example.desafiopagamento.feature.domain.model.User
 
-class ContactRecyclerViewAdapter(val itemClick : (Contact) -> Unit) :RecyclerView.Adapter<ContactRecyclerViewAdapter.MyViewHolder>() {
+class ContactRecyclerViewAdapter(val itemClick : (Int) -> Unit) :RecyclerView.Adapter<ContactRecyclerViewAdapter.MyViewHolder>() {
 
-    var itemList : MutableList<Contact> = mutableListOf()
+    var itemList : MutableList<User> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_rv_contact, parent, false)
@@ -30,14 +30,14 @@ class ContactRecyclerViewAdapter(val itemClick : (Contact) -> Unit) :RecyclerVie
 
     class MyViewHolder(val itemView : View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bindItem(contact: Contact, itemClick: (Contact) -> Unit) {
+        fun bindItem(user: User, itemClick: (Int) -> Unit) {
             itemView.findViewById<LinearLayout>(R.id.llItemContact).setOnClickListener {
-                itemClick(contact)
+                itemClick(user.id)
             }
             itemView.findViewById<ImageView>(R.id.ivItemUserImage)
-                .setImageResource(contact.drawableID)
-            itemView.findViewById<TextView>(R.id.tvItemUserNickName).text = contact.nickname
-            itemView.findViewById<TextView>(R.id.tvItemUserName).text = contact.name
+                .setImageResource(user.drawableID)
+            itemView.findViewById<TextView>(R.id.tvItemUserNickName).text = user.nickname
+            itemView.findViewById<TextView>(R.id.tvItemUserName).text = user.name
         }
     }
 }

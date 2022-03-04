@@ -2,12 +2,14 @@ package com.example.desafiopagamento.feature.presentation.homescreen
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.desafiopagamento.R
 import com.example.desafiopagamento.databinding.FragmentHomeBinding
-import com.example.desafiopagamento.feature.data.MockContacts
+import com.example.desafiopagamento.feature.data.MockData
 import com.example.desafiopagamento.feature.presentation.adpter.ContactRecyclerViewAdapter
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
@@ -18,7 +20,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private val viewModel : HomeViewModel by viewModels {
         HomeViewModel.HomeViewModelFactory(
-            MockContacts
+            MockData.getIntance()
         )
     }
 
@@ -31,6 +33,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onResume() {
         super.onResume()
 
+        binding.edtSearch.doOnTextChanged { text, start, before, count ->
+            viewModel.searchContact(text.toString())
+        }
+
         viewModel.contactsWorkList.observe(this){ listContact ->
             mAdapter.itemList = listContact
             mAdapter.notifyDataSetChanged()
@@ -38,14 +44,20 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun initRecyclerVIew(){
-        mAdapter = ContactRecyclerViewAdapter { contact ->
-
+        mAdapter = ContactRecyclerViewAdapter { contactID ->
+            val args = Bundle()
+            args.apply {
+                putInt("userID", contactID)
+            }
+            if(viewModel.checkUserCard()){
+                findNavController().navigate(R.id.action_homeFragment_to_payFragment, args)
+            }else{
+                findNavController().navigate(R.id.action_homeFragment_to_preCardRegisterFragment, args)
+            }
         }
         binding.rvContacts.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.rvContacts.adapter = mAdapter
     }
-
-
 
     override fun onDestroy() {
         super.onDestroy()

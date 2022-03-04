@@ -3,27 +3,36 @@ package com.example.desafiopagamento.feature.presentation.homescreen
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.desafiopagamento.feature.data.MockContacts
-import com.example.desafiopagamento.feature.domain.model.Contact
+import com.example.desafiopagamento.feature.data.MockData
+import com.example.desafiopagamento.feature.domain.model.User
 
-class HomeViewModel(val db : MockContacts) : ViewModel() {
+class HomeViewModel(val db : MockData) : ViewModel() {
 
-    var contactsWorkList : MutableLiveData<MutableList<Contact>> = MutableLiveData()
-    var contactBaseList : MutableList<Contact> = mutableListOf()
+    var contactsWorkList : MutableLiveData<MutableList<User>> = MutableLiveData()
+    var userBaseList : MutableList<User> = mutableListOf()
 
     init {
         getAllContacts()
     }
 
-    private fun getAllContacts(){
-        contactsWorkList.value = db.getAllContacts()
-        contactBaseList = db.getAllContacts()
+    fun checkUserCard() : Boolean {
+        return db.userCard != null
     }
 
-    class HomeViewModelFactory(val db : MockContacts) : ViewModelProvider.Factory{
+    private fun getAllContacts(){
+        contactsWorkList.value = db.getAllContacts()
+        userBaseList = db.getAllContacts()
+    }
+
+    fun searchContact(text : String){
+        contactsWorkList.value = userBaseList.filter { contact ->
+            contact.nickname.contains(text, true) || contact.name.contains(text, true)
+        }.toMutableList()
+    }
+
+    class HomeViewModelFactory(val db : MockData) : ViewModelProvider.Factory{
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             return HomeViewModel(db) as T
         }
-
     }
 }

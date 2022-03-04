@@ -9,20 +9,55 @@
         android:id="@+id/homeFragment"
         android:name="com.example.desafiopagamento.feature.presentation.homescreen.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            app:popEnterAnim="@anim/get_from_left"
+            app:popExitAnim="@anim/push_to_right"
+            app:enterAnim="@anim/get_from_right"
+            app:exitAnim="@anim/push_to_left"
+            android:id="@+id/action_homeFragment_to_payFragment"
+            app:destination="@id/payFragment" />
+        <action
+            app:popEnterAnim="@anim/get_from_left"
+            app:popExitAnim="@anim/push_to_right"
+            app:enterAnim="@anim/get_from_right"
+            app:exitAnim="@anim/push_to_left"
+            android:id="@+id/action_homeFragment_to_preCardRegisterFragment"
+            app:destination="@id/preCardRegisterFragment" />
+    </fragment>
     <fragment
         android:id="@+id/preCardRegisterFragment"
         android:name="com.example.desafiopagamento.feature.presentation.precardregister.PreCardRegisterFragment"
         android:label="fragment_precardregister"
-        tools:layout="@layout/fragment_precardregister" />
+        tools:layout="@layout/fragment_precardregister" >
+        <action
+            app:popEnterAnim="@anim/get_from_left"
+            app:popExitAnim="@anim/push_to_right"
+            app:enterAnim="@anim/get_from_right"
+            app:exitAnim="@anim/push_to_left"
+            android:id="@+id/action_preCardRegisterFragment_to_cardRegisterFragment"
+            app:destination="@id/cardRegisterFragment" />
+    </fragment>
     <fragment
         android:id="@+id/cardRegisterFragment"
         android:name="com.example.desafiopagamento.feature.presentation.cardregister.CardRegisterFragment"
         android:label="fragment_cardregister"
-        tools:layout="@layout/fragment_cardregister" />
+        tools:layout="@layout/fragment_cardregister" >
+        <action
+            app:enterAnim="@anim/get_from_right"
+            app:exitAnim="@anim/push_to_left"
+            android:id="@+id/action_cardRegisterFragment_to_payFragment2"
+            app:destination="@id/payFragment" />
+    </fragment>
     <fragment
         android:id="@+id/payFragment"
         android:name="com.example.desafiopagamento.feature.presentation.payscreen.PayFragment"
         android:label="fragment_pay"
-        tools:layout="@layout/fragment_pay" />
+        tools:layout="@layout/fragment_pay" >
+        <action
+            app:enterAnim="@anim/get_from_left"
+            app:exitAnim="@anim/push_to_right"
+            android:id="@+id/action_payFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>
