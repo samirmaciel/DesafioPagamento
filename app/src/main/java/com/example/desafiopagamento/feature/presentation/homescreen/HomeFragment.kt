@@ -45,6 +45,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun initRecyclerVIew(){
         mAdapter = ContactRecyclerViewAdapter { contactID ->
+            val id = contactID
             val args = Bundle()
             args.apply {
                 putInt("userID", contactID)

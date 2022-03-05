@@ -21,6 +21,10 @@ class DateTextWatcher(private val editText: TextInputEditText) : TextWatcher {
     }
 
     override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+        if(!s.toString().isEmpty()) {
+
+            editText.removeTextChangedListener(this)
+
         var sizeEditText = editText.text.toString().length
         if(sizeEditText == 2) {
             if (!lastChar.equals("/")) {
@@ -31,13 +35,16 @@ class DateTextWatcher(private val editText: TextInputEditText) : TextWatcher {
         }else if(sizeEditText == 3){
             if(lastChar.contains("[23456789]".toRegex())){
             }
-        }else if (sizeEditText == 5){
-            if(!lastChar.equals("/")){
+        }else if (sizeEditText == 5) {
+            if (!lastChar.equals("/")) {
                 editText.append("/")
-            }else{
+            } else {
                 editText.text?.delete(sizeEditText - 1, sizeEditText - 1)
             }
         }
 
+        editText.addTextChangedListener(this)
+
+        }
     }
 }

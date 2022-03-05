@@ -52,7 +52,7 @@ class CardRegisterFragment : Fragment(R.layout.fragment_cardregister) {
             findNavController().navigate(R.id.action_cardRegisterFragment_to_payFragment2, args)
         }
 
-        binding.tieCVV.addTextChangedListener(DateTextWatcher(binding.tieCVV))
+        binding.tieCardHDueDate.addTextChangedListener(DateTextWatcher(binding.tieCardHDueDate))
 
         binding.btnBack.setOnClickListener {
             findNavController().navigateUp()
