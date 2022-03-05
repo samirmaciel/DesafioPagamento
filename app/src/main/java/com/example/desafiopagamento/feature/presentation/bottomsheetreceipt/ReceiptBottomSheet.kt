@@ -51,9 +51,12 @@ class ReceiptBottomSheet : BottomSheetDialogFragment() {
             val user = viewModel.getUserByID(it.destination_user_id)
 
             if(user != null){
+                val cardNumberSlipted = it.card_number.split("-")
+                val finalNumbersOfCard = cardNumberSlipted[cardNumberSlipted.size - 1]
                 binding.ivUserImageReceipt.setImageResource(user.drawableID)
                 binding.tvReceiptPayDateTime.text = formaterDateTime(it.transactionDateTime)
                 binding.tvReceiptTotalPayValue.text = it.value
+                binding.tvReceiptCardInfo.text = "Visa Card $finalNumbersOfCard"
                 binding.tvReceiptPayValue.text = it.value
                 binding.tvReceiptPayTransactionCode.text = it.id.toString()
             }

@@ -34,6 +34,7 @@ class DateTextWatcher(private val editText: TextInputEditText) : TextWatcher {
             }
         }else if(sizeEditText == 3){
             if(lastChar.contains("[23456789]".toRegex())){
+
             }
         }else if (sizeEditText == 5) {
             if (!lastChar.equals("/")) {

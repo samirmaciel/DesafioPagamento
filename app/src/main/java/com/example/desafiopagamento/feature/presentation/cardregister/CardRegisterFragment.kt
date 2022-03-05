@@ -11,6 +11,7 @@ import com.example.desafiopagamento.R
 import com.example.desafiopagamento.databinding.FragmentCardregisterBinding
 import com.example.desafiopagamento.feature.data.MockData
 import com.example.desafiopagamento.feature.domain.model.Card
+import com.example.desafiopagamento.feature.utils.CardNumberTextWatcher
 import com.example.desafiopagamento.feature.utils.DateTextWatcher
 
 class CardRegisterFragment : Fragment(R.layout.fragment_cardregister) {
@@ -52,6 +53,7 @@ class CardRegisterFragment : Fragment(R.layout.fragment_cardregister) {
             findNavController().navigate(R.id.action_cardRegisterFragment_to_payFragment2, args)
         }
 
+        binding.tieCardNumber.addTextChangedListener(CardNumberTextWatcher(binding.tieCardNumber))
         binding.tieCardHDueDate.addTextChangedListener(DateTextWatcher(binding.tieCardHDueDate))
 
         binding.btnBack.setOnClickListener {

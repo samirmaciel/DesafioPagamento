@@ -58,6 +58,12 @@ class PayFragment : Fragment(R.layout.fragment_pay){
 
         binding.edtMoneyInput.doOnTextChanged{ text, _, _, _ ->
             binding.btnPay.isEnabled = !text.isNullOrEmpty()
+
+            if(!text.isNullOrEmpty()){
+                binding.tvSymbol.setTextColor(resources.getColor(R.color.green))
+            }else{
+                binding.tvSymbol.setTextColor(resources.getColor(R.color.graylight))
+            }
         }
 
         viewModel.userForTransaction.observe(this){ user ->
@@ -73,7 +79,7 @@ class PayFragment : Fragment(R.layout.fragment_pay){
     private fun getTransaction() : Transaction{
 
         val transaction = Transaction(
-            card_number = binding.edtMoneyInput.text.toString(),
+            card_number = viewModel.getCard().cardNumber,
             destination_user_id = viewModel.userForTransaction.value!!.id,
             transactionDateTime = LocalDateTime.now().toString(),
             cvv = viewModel.getCard().cardCvv,

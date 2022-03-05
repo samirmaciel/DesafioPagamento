@@ -54,6 +54,7 @@
         style="@style/moneyText" />
 
     <TextView
+        android:id="@+id/tvSymbol"
         app:layout_constraintEnd_toStartOf="@id/edtMoneyInput"
         app:layout_constraintTop_toTopOf="@id/edtMoneyInput"
         app:layout_constraintBottom_toBottomOf="@id/edtMoneyInput"
